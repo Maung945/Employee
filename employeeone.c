@@ -23,3 +23,14 @@ PtrToEmployee searchEmployeeByName(PtrToConstEmployee ptr, int tableSize, char *
     }
     return NULL;
 }
+
+PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int tableSize, char *targetName) {
+    
+    const PtrToConstEmployee endPtr = ptr + tableSize;
+    for (; ptr < endPtr; ptr++)
+    {
+        if (strcmp(ptr->phone, targetName) == 0)         // String compare
+            return (PtrToEmployee)ptr;
+    }
+    return NULL;
+}
