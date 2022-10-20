@@ -8,7 +8,9 @@ int main(void) {
     // defined in employeeSearchOne.c
     PtrToEmployee searchEmployeeByNumber(const Employee table[], int sizeTable, long numberToFind);
     PtrToEmployee searchEmployeeByName(const Employee table[], int sizeTable, char *nameToFind);
-    PtrToEmployee searchEmployeeByPhoneNumber(const Employee table[], int sizeTable, char *nameToFind);
+    PtrToEmployee searchEmployeeByPhoneNumber(const Employee table[], int sizeTable, char *phoneToFind);
+    PtrToEmployee searchEmployeeBySalary(const Employee table[], int sizeTable, double salaryToFind);
+
     // defined in employeeTable.c
     extern Employee EmployeeTable[];                        // Defined somewhere else
     extern const int EmployeeTableEntries;                  // This is also defined somewhere else
@@ -22,7 +24,7 @@ int main(void) {
     else
         printf("Employee ID is NOT found in the record\n");
 
-    // Example foundsearchEmployeeByPhoneNumber
+    // Example foundsearchEmployeeByName
     matchPtr = searchEmployeeByName(EmployeeTable, EmployeeTableEntries, "Tony Bobcat");
     if (matchPtr != NULL)
         printf("Employee Tony Bobcat is in record %ld\n", matchPtr - EmployeeTable);
@@ -34,6 +36,14 @@ int main(void) {
         printf("Employee 213-555-1212 is in record %ld\n", matchPtr - EmployeeTable);
     else 
         printf("Employee 213-555-1212 is NOT found in the record\n");
+
+    // Example foundsearchEmployeeBySalary
+    matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, (double)6.34);
+    if (matchPtr != NULL)
+        printf("Employee 6.34 is in record %ld\n", matchPtr - EmployeeTable);
+    else
+        printf("Employee 6.34 is NOT found in the record\n");
+
         
     return EXIT_SUCCESS;                                    // This is required becaue int main(void)
 }
