@@ -22,7 +22,7 @@ int main(void) {
     else
         printf("Employee ID is NOT found in the record\n");
 
-    // Example found
+    // Example foundsearchEmployeeByPhoneNumber
     matchPtr = searchEmployeeByName(EmployeeTable, EmployeeTableEntries, "Tony Bobcat");
     if (matchPtr != NULL)
         printf("Employee Tony Bobcat is in record %ld\n", matchPtr - EmployeeTable);
